@@ -5,3 +5,7 @@ migrations/
 .env
 *.sqlite3
 db*
+
+# Django static files
+/staticfiles/
+/static/
