@@ -37,4 +37,9 @@ class ProductSerializer(serializers.ModelSerializer):
                         "Discounted price must be lower than price"
                     )
 
+                data["price"] = price - discounted_price
+
+            if data.get("barcode") and len(data["barcode"]) != 13:
+                raise serializers.ValidationError("Barcode must be 13 characters long")
+
             return data
