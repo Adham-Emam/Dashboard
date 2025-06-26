@@ -16,7 +16,7 @@ class ProductAPITests(APITestCase):
             name="Test Product",
             description="Test Description",
             price=9.99,
-            barcode="1234567890",
+            barcode="1234567890123",
         )
         self.list_url = reverse("product-list-create")
         self.detail_url = reverse("product-detail", kwargs={"pk": self.product.pk})
@@ -29,7 +29,7 @@ class ProductAPITests(APITestCase):
             "category": "Electronics",
             "brand_name": "BrandX",
             "price": 19.99,
-            "barcode": "0987654321",
+            "barcode": "0987654321123",
         }
 
         # Authenticate and store access token
