@@ -3,9 +3,9 @@ from .models import Inventory
 
 
 class InventoryAdmin(admin.ModelAdmin):
-    list_display = ("id", "product", "location", "quantity", "product_name")
-    list_filter = ("location", "product")
-    search_fields = ("product__name", "location")
+    list_display = ("id", "product", "quantity", "product_name")
+    list_filter = ("product",)
+    search_fields = ("product__name",)
     autocomplete_fields = ("product",)
 
     def product_name(self, obj):

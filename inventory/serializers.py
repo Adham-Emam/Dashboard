@@ -7,11 +7,10 @@ class InventorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Inventory
-        fields = ["id", "product", "location", "quantity", "product_name"]
+        fields = ["id", "product", "quantity", "product_name"]
         read_only_fields = ["id", "product_name"]
         extra_kwargs = {
             "product": {"required": True},
-            "location": {"required": True},
             "quantity": {"required": True, "min_value": 0},
         }
 

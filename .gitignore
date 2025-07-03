@@ -1,3 +1,4 @@
+.vscode/
 .venv/ 
 __pycache__/
 *.pyc
@@ -8,3 +9,7 @@ db*
 
 # Django static files
 /staticfiles/
+
+# testing files
+*.rest
+test*

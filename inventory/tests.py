@@ -64,13 +64,19 @@ class InventoryAPITestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_create_inventory_unauthenticated(self):
-        data = {"product": self.product.id, "quantity": 5, "location": "Warehouse A"}
+        data = {
+            "product": self.product.id,
+            "quantity": 5,
+        }
         response = self.client.post(self.list_url, data)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_create_inventory_authenticated(self):
         self.authenticate()
-        data = {"product": self.product.id, "quantity": 5, "location": "Warehouse A"}
+        data = {
+            "product": self.product.id,
+            "quantity": 5,
+        }
         response = self.client.post(self.list_url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data["product_name"], "Test Product")
